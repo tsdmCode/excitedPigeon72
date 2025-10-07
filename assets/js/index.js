@@ -1,8 +1,12 @@
 const mainCategories = {
-  Beauty: [],
+  BeautyProducts: [],
+  Fashion: [],
+  Electronics: [],
+  Home: [],
+  Sports: [],
 };
-
 let data;
+
 const fetchData = async () => {
   try {
     const response = await fetch('https://dummyjson.com/products');
