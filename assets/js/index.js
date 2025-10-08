@@ -1,5 +1,7 @@
 import populateHeader from './populateHeader.js';
 import { cardShitter } from './cardShitter.js';
+import { searchProduct } from './searchProduct.js';
+
 export const mainCategories = {
   Beauty: [],
   Fashion: [],
@@ -8,6 +10,14 @@ export const mainCategories = {
   Sports: [],
 };
 let data;
+const search = document.getElementById('product-search');
+
+search.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const searchQuery = `https://dummyjson.com/products/search?q=${e.target.value}`;
+    searchProduct(searchQuery);
+  }
+});
 
 const fetchData = async () => {
   try {

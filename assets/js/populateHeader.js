@@ -8,7 +8,6 @@ export default function populateHeader() {
     let category = document.createElement('section');
     category.innerHTML = `<div class="category">${key}</div>`;
 
-    // Create a container for subcategories
     const subContainer = document.createElement('div');
     subContainer.className = 'sub-container';
 
