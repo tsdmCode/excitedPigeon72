@@ -1,7 +1,7 @@
 import populateHeader from './populateHeader.js';
 import { cardShitter } from './cardShitter.js';
 import { searchProduct } from './searchProduct.js';
-
+import addToCart from './addToCart.js';
 export const mainCategories = {
   Beauty: [],
   Fashion: [],
