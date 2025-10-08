@@ -1,42 +1,77 @@
 /* #region globals, variables and imports */
 @import 'reset.css';
-
 /* #endregion  */
-
 /* #region header */
+/* #endregion */
+/* #region nav */
+.sub-category {
+  display: none;
+}
+
+/* Use sibling selector to target subcategories when hovering over the section */
+section:hover .sub-category {
+  display: block;
+}
+
+/* Alternative: Target subcategories that are siblings of the hovered category */
+/* #region nav */
+#global-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+section {
+  position: relative;
+  z-index: 1000;
+}
+
+.category {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #ddd;
+}
+
+.sub-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+
+.sub-category {
+  padding: 5px 15px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.sub-category:hover {
+  background-color: #e0e0e0;
+}
+
+section:hover .sub-container {
+  display: flex;
+}
 
 /* #endregion */
-
-/* #region nav */
-
 /* #endregion  */
-
 /* #region one  */
-
 /* #endregion  */
-
 /* #region two */
-
 /* #endregion  */
-
 /* #region three  */
-
 /* #endregion  */
-
 /* #region queries  */
-
 /* #region screen  */
-
-@media screen and (min-width: 1300px) {
-}
-
 /* #endregion  */
-
 /* #region tablet  */
-
-@media screen and (min-width: 769px) and (max-width: 1299px) {
-}
-
+/* #endregion  */
 /* #endregion  */
 
-/* #endregion  */
+/*# sourceMappingURL=styles.css.map */
