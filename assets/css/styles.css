@@ -14,7 +14,6 @@ header {
 /* #region nav */
 #global-nav {
   display: flex;
-  gap: 2rem;
 }
 
 section {

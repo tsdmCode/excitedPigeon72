@@ -1,5 +1,5 @@
 import populateHeader from './populateHeader.js';
-
+import { cardShitter } from './cardShitter.js';
 export const mainCategories = {
   Beauty: [],
   Fashion: [],
@@ -26,15 +26,7 @@ const getFeaturedProducts = () => {
       //console.log(product);
       const app = document.getElementById('app');
 
-      app.innerHTML += `<figure class="product-card">
-          <img src="${product.thumbnail}" />
-          <figcaption>    
-              <h2>${product.title}</h2>
-              <p>${product.description}</p>
-              <p>Price: $${product.price}</p>
-              <button onclick="addToCart()" class="buyBtn"></button>
-          </figcaption>
-      </figure>`;
+      app.innerHTML += cardShitter(product);
     })
     .catch((error) => console.error(error));
 };

@@ -1,4 +1,5 @@
 import { mainCategories } from './index.js';
+import { searchByCategory } from './searchByCategory.js';
 
 export default function populateHeader() {
   const nav = document.getElementById('global-nav');
