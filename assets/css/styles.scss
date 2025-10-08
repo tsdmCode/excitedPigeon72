@@ -26,16 +26,20 @@
 /* #endregion */
 
 /* #region nav */
-.sub-category {
-  display: none;
+// .sub-category {
+//   display: none;
+// }
+
+
+// section:hover .sub-category {
+//   display: block;
+// }
+
+header {
+  @include flexcenter();
+  justify-content: space-between;
 }
 
-/* Use sibling selector to target subcategories when hovering over the section */
-section:hover .sub-category {
-  display: block;
-}
-
-/* Alternative: Target subcategories that are siblings of the hovered category */
 /* #region nav */
 #global-nav {
   display: flex;
