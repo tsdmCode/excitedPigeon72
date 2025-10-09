@@ -23,18 +23,6 @@
 
 /* #region header */
 
-/* #endregion */
-
-/* #region nav */
-// .sub-category {
-//   display: none;
-// }
-
-
-// section:hover .sub-category {
-//   display: block;
-// }
-
 header {
   @include flexcenter();
   justify-content: space-between;
@@ -84,7 +72,6 @@ section {
 section:hover .sub-container {
   display: flex;
 }
-/* #endregion */
 /* #endregion  */
 
 /* #region one  */
