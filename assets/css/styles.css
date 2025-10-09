@@ -1,9 +1,12 @@
 /* #region globals, variables and imports */
 @import 'reset.css';
 /* #endregion  */
+body {
+  font-family: oswald, sans-serif;
+  margin: 0 1rem;
+}
+
 /* #region header */
-/* #endregion */
-/* #region nav */
 header {
   display: flex;
   align-items: center;
@@ -55,9 +58,56 @@ section:hover .sub-container {
   display: flex;
 }
 
-/* #endregion */
 /* #endregion  */
-/* #region one  */
+#app {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  gap: 1rem;
+}
+
+/* #region card  */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.3333333333);
+  font-size: 1.25vw;
+  line-height: 1.25;
+}
+.product-card h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2vw;
+}
+.product-card img {
+  width: 100%;
+  object-fit: cover;
+}
+.product-card p {
+  margin-top: auto;
+}
+.product-card figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+  flex: 1;
+  justify-content: space-between;
+}
+.product-card button {
+  background-color: #78d37f;
+  color: #f0f0f0;
+  font-family: oswald, sans-serif;
+  border-radius: 25px;
+  padding: 1rem;
+  align-self: center;
+  margin-top: auto;
+  width: 30%;
+  cursor: pointer;
+}
+
 /* #endregion  */
 /* #region two */
 /* #endregion  */

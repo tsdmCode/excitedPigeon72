@@ -3,6 +3,8 @@
 
 // sass --watch styles.scss styles.css 
 
+$fontstack: oswald, sans-serif;
+
 @mixin flexcolumn {
     display: flex;
     flex-direction: column;
@@ -14,12 +16,23 @@
   justify-content: center;
 }
 
-@mixin gridmobile($columns: repeat(1, 1fr)) {
+@mixin grid($columns: repeat(1, 1fr)) {
     display: grid;
     grid-template-columns: $columns;
 } 
 
+
+
 /* #endregion  */
+
+// #region body 
+
+body {
+  font-family: $fontstack;
+  margin: 0 1rem
+}
+
+// #endregion
 
 /* #region header */
 
@@ -74,8 +87,56 @@ section:hover .sub-container {
 }
 /* #endregion  */
 
-/* #region one  */
+#app {
+ @include grid($columns: repeat(4, 1fr));
+ width: 100%;
+ gap: 1rem;
 
+}
+
+/* #region card  */
+.product-card {
+  @include flexcolumn();
+  border-radius: 25px;
+  box-shadow: 2px 2px 15px 2px #00000055;
+  font-size: 1.25vw;
+  line-height: 1.25;
+  
+  h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2vw;
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  p {
+    margin-top: auto
+  }
+
+  figcaption {
+    @include flexcolumn();
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 1rem;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  button {
+    background-color: #78d37f;
+    color: #f0f0f0;
+    font-family: $fontstack;
+    border-radius: 25px;
+    padding: 1rem;
+    align-self: center;
+    margin-top: auto;
+    width: 30%;
+    cursor: pointer;
+  }
+}
 /* #endregion  */
 
 /* #region two */
