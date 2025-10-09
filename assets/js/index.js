@@ -3,7 +3,7 @@ import { cardShitter } from './cardShitter.js';
 import { searchProduct } from './searchProduct.js';
 import addToCart from './addToCart.js';
 import { deleteById } from './deleteById.js';
-
+import detailedView from './detailedView.js';
 export const mainCategories = {
   Beauty: [],
   Fashion: [],
@@ -38,7 +38,7 @@ const getFeaturedProducts = () => {
       //console.log(product);
       const app = document.getElementById('app');
 
-      app.innerHTML += cardShitter(product);
+      app.innerHTML += cardShitter(product, false);
     })
     .catch((error) => console.error(error));
 };
