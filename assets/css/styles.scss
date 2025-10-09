@@ -88,10 +88,12 @@ section:hover .sub-container {
 /* #endregion  */
 
 #app {
- @include grid($columns: repeat(4, 1fr));
+ @include grid($columns: repeat(auto-fit, 350px));
  width: 100%;
  gap: 1rem;
-
+ justify-content: center;
+ max-width: 1200px;
+ margin: 0 auto;
 }
 
 /* #region card  */
@@ -122,7 +124,7 @@ section:hover .sub-container {
     padding: 1rem;
     gap: 1rem;
     flex: 1;
-    justify-content: space-between;
+   
   }
 
   button {
