@@ -1,5 +1,5 @@
 import { deleteById } from './deleteById.js';
-import { saveDataToLocalStorage } from './localStorage';
+import { saveDataToLocalStorage } from './localStorage.js';
 export function incrementDecrement(id, data, operator) {
   const index = data.items.findIndex((item) => item.id === id);
 
