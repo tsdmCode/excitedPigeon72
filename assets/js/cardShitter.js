@@ -1,5 +1,3 @@
-import addToCart from './addToCart.js';
-window.addToCart = addToCart;
 export function cardShitter(product) {
   return `<figure class="product-card">
               <img src="${product.thumbnail}" />
@@ -7,7 +5,7 @@ export function cardShitter(product) {
                   <h2>${product.title}</h2>
                   <p>${product.description}</p>
                   <p>Price: $${product.price}</p>
-                  <button onclick="addToCart(${product.id}, ${product.price})" class="buyBtn">Add to Cart</button>
+                  <button onclick="addToCart(${product.id})" class="buyBtn">Add to Cart</button>
               </figcaption>
           </figure>`;
 }
