@@ -1,7 +1,6 @@
 import { getProductById } from './getProductById.js';
 import { saveDataToLocalStorage, getDataFromLocalStorage } from './localStorage.js';
 import { incrementDecrement } from './incrementDecrement.js';
-import { deleteById } from './deleteById.js';
 
 window.incrementDecrement = incrementDecrement;
 
@@ -32,12 +31,17 @@ export async function shoppingCart() {
     })
   );
 
-  app.innerHTML =
-    cartItems.join('') +
-    `<div class="cart-total">
-      <h3 id="cart-total">Total: $${total.toFixed(2)}</h3>
-      <button onclick="buyNow()" class="buy-now-btn">Buy Now</button>
-    </div>`;
+  app.innerHTML = `
+    <div class="cart-container">
+      <div class="cart-items">
+        ${cartItems.join('')}
+      </div>
+      <div class="cart-total">
+        <h3 id="cart-total">Total: $${total.toFixed(2)}</h3>
+        <button onclick="buyNow()" class="buy-now-btn">Buy Now</button>
+      </div>
+    </div>
+  `;
 }
 
 window.handleIncrement = function (id, operator) {
@@ -108,5 +112,6 @@ function updateTotal() {
 window.buyNow = function () {
   saveDataToLocalStorage('store_data', { items: [] });
   const app = document.getElementById('app');
-  app.innerHTML = '<h2>Thank you for your purchase!</h2>';
+  app.innerHTML =
+    '<div id="thankyou"><h2>Thank you for your purchase!</h2><img src="assets/images/raw.png"></img><button onclick="window.location.reload()">Continue Shopping</button></div>';
 };
