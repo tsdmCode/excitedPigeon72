@@ -8,6 +8,6 @@ export async function searchProduct(url) {
   app.innerHTML = '';
 
   data.products.forEach((product) => {
-    app.innerHTML += cardShitter(product);
+    app.innerHTML += cardShitter(product, false);
   });
 }
