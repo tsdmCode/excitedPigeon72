@@ -1,5 +1,6 @@
 import { deleteById } from './deleteById.js';
 import { saveDataToLocalStorage } from './localStorage.js';
+import { shoppingCart } from './shoppingCart.js';
 export function incrementDecrement(id, data, operator) {
   const index = data.items.findIndex((item) => item.id === id);
 
@@ -13,9 +14,7 @@ export function incrementDecrement(id, data, operator) {
       data.items[index].amount++;
       break;
     case '-':
-      if (data.items[index].amount === 1) {
-        deleteById(id);
-      } else {
+      if (data.items[index].amount > 1) {
         data.items[index].amount--;
       }
       break;

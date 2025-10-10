@@ -4,7 +4,6 @@ import { incrementDecrement } from './incrementDecrement.js';
 import { deleteById } from './deleteById.js';
 
 window.incrementDecrement = incrementDecrement;
-window.deleteById = deleteById;
 
 export async function shoppingCart() {
   const data = getDataFromLocalStorage('store_data');
@@ -26,7 +25,7 @@ export async function shoppingCart() {
                 <button onclick="handleIncrement(${element.id}, '-')">-</button>
                 <input type="number" value="${element.amount}" readonly data-item-amount="${element.id}">
                 <button onclick="handleIncrement(${element.id}, '+')">+</button>
-                <i onclick="deleteById(${element.id})" class="fa-solid fa-trash-can"></i>
+                <i onclick="handleDeleteById(${element.id})" class="fa-solid fa-trash-can"></i>
             </div>
             <p class="subtotal" data-subtotal="${element.id}">Subtotal: $${itemTotal.toFixed(2)}</p>
         </div>`;
@@ -43,28 +42,51 @@ export async function shoppingCart() {
 
 window.handleIncrement = function (id, operator) {
   const data = getDataFromLocalStorage('store_data');
-  incrementDecrement(id, data, operator);
 
-  const updatedData = getDataFromLocalStorage('store_data');
-  const updatedItem = updatedData.items.find((item) => item.id === id);
+  const currentItem = data.items.find((item) => item.id === id);
+  const willDelete = currentItem && currentItem.amount === 1 && operator === '-';
 
-  if (updatedItem) {
-    const input = document.querySelector(`[data-item-amount="${id}"]`);
-    if (input) {
-      input.value = updatedItem.amount;
-    }
-
-    const subtotal = document.querySelector(`[data-subtotal="${id}"]`);
-    if (subtotal) {
-      const newSubtotal = updatedItem.price * updatedItem.amount;
-      subtotal.textContent = `Subtotal: $${newSubtotal.toFixed(2)}`;
-    }
-  } else {
+  if (willDelete) {
     const cartItem = document.querySelector(`[data-id="${id}"]`);
     if (cartItem) {
       cartItem.remove();
     }
+
+    data.items = data.items.filter((item) => item.id !== id);
+    saveDataToLocalStorage('store_data', data);
+  } else {
+    // Update normally
+    incrementDecrement(id, data, operator);
+
+    const updatedData = getDataFromLocalStorage('store_data');
+    const updatedItem = updatedData.items.find((item) => item.id === id);
+
+    if (updatedItem) {
+      const input = document.querySelector(`[data-item-amount="${id}"]`);
+      if (input) {
+        input.value = updatedItem.amount;
+      }
+
+      const subtotal = document.querySelector(`[data-subtotal="${id}"]`);
+      if (subtotal) {
+        const newSubtotal = updatedItem.price * updatedItem.amount;
+        subtotal.textContent = `Subtotal: $${newSubtotal.toFixed(2)}`;
+      }
+    }
   }
+
+  updateTotal();
+};
+
+window.handleDeleteById = function (id) {
+  const cartItem = document.querySelector(`[data-id="${id}"]`);
+  if (cartItem) {
+    cartItem.remove();
+  }
+
+  const data = getDataFromLocalStorage('store_data');
+  data.items = data.items.filter((item) => item.id !== id);
+  saveDataToLocalStorage('store_data', data);
 
   updateTotal();
 };
